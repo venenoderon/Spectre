@@ -1,6 +1,6 @@
-# gigi
+# Spectre
 
-Go re-imagining of the Zetsu shellcode template with heavier emphasis on stealth techniques: PEB-only module discovery via Go assembly, hashed export resolution with forwarder support, XOR-obfuscated literals, and a sample payload that never calls Win32 import tables directly. Targets Windows/amd64.
+Spectre (Golang) is a shellcode template with heavier emphasis on stealth techniques: PEB-only module discovery via Go assembly, hashed export resolution with forwarder support, XOR-obfuscated literals, and a sample payload that never calls Win32 import tables directly. Targets Windows/amd64.
 
 ## Why this is more advanced
 - **Import-less PEB walker:** `getPEB` is Go assembly reading `GS:[0x60]`, no WinAPI to enumerate modules.
@@ -14,7 +14,7 @@ Go re-imagining of the Zetsu shellcode template with heavier emphasis on stealth
 
 ## Build
 ```powershell
-cd AdvancedZetsuGo
+cd Spectre
 go env -w GOOS=windows GOARCH=amd64
 go build -trimpath -ldflags="-s -w -H=windowsgui -buildid=" -o bin/payload.exe ./cmd/payload
 ```
